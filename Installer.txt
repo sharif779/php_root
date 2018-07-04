@@ -1,0 +1,15 @@
+# php_root
+Execute root commands via PHP.
+
+To run the script as root no matter what user that executes it, we will need a binary wrapper. Here is wrapper.c
+
+Compile and set proper permissions, including the suid bit (saying that it should run with root privileges):
+
+# gcc wrapper.c -o php_root     # php_root can be dynamic
+# chown root php_root
+# chmod u=rwx,go=xr,+s php_root
+
+php_root will now run with root permissions, and execute the commands specified
+
+just run  the php_root file as ===./php_root '.$cmd'
+
